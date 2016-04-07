@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="actor" class="com.finleyamber.spring.di.simple.Actor">
+        <constructor-arg index="0" value="LiuDehua"></constructor-arg>
+        <constructor-arg index="1" value="MoGong"></constructor-arg>
+    </bean>
+
+    <bean id="liuxiaoqing" class="com.finleyamber.spring.di.simple.ModernPoem">
+
+    </bean>
+
+    <!--引用注入-->
+    <!--<bean id="actorPoem" class="com.finleyamber.spring.di.simple.ActorPoem">-->
+        <!--<constructor-arg index="0" value="liuxiaoqing"></constructor-arg>-->
+        <!--<constructor-arg index="1" value="WangFei"></constructor-arg>-->
+        <!--<constructor-arg index="2" ref="liuxiaoqing"></constructor-arg>-->
+    <!--</bean>-->
+
+
+    <!--内部Bean-->
+    <bean id="actorPoem" class="com.finleyamber.spring.di.simple.ActorPoem">
+        <constructor-arg index="0" value="liuxiaoqing"></constructor-arg>
+        <constructor-arg index="1" value="WangFei"></constructor-arg>
+        <constructor-arg index="2">
+            <bean  class="com.finleyamber.spring.di.simple.ModernPoem"></bean>
+        </constructor-arg>
+    </bean>
+
+    <!--factory-method 允许指定静态方法 替代构造方法创建实例-->
+    <bean id="stage" class="com.finleyamber.spring.di.simple.Stage" factory-method="getInstance"/>
+
+
+    <bean id="auditorium" class="com.finleyamber.spring.di.simple.Auditorium"></bean>
+
+
+    <bean id="pinao" class="com.finleyamber.spring.di.simple.Piano"/>
+
+    <!--使用命名空间p装配属性-->
+    <bean id="instrumentalist" class="com.finleyamber.spring.di.simple.Instrumentalist" p:song="Rose" p:instrument-ref="pinao"/>
+
+
+</beans>
