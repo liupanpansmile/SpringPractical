@@ -52,3 +52,4 @@
 
    	(6)装配null值
    	<property name="nonNullProperty"><null/></property>
+   	(7)Spring Expression Language(SpEL)
