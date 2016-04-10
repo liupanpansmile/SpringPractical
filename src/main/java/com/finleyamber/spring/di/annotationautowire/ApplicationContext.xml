@@ -9,13 +9,9 @@
     <!--使用基于注解的自动装配-->
     <context:annotation-config/>
 
-    <!--从候选者中剔除-->
-    <bean id="pinao" class="com.finleyamber.spring.di.annotationautowire.Piano" />
+    <bean id="piano" class="com.finleyamber.spring.di.annotationautowire.Piano" />
     <bean id="guitar" class="com.finleyamber.spring.di.annotationautowire.Guitar" />
 
-
-
-    <!--byName 自动装配-->
-    <bean id="instrumentalist" class="com.finleyamber.spring.di.annotationautowire.Instrumentalist" p:song="Rose" />
+    <bean id="instrumentalist"   class="com.finleyamber.spring.di.annotationautowire.Instrumentalist" p:song="Rose" />
 
 </beans>

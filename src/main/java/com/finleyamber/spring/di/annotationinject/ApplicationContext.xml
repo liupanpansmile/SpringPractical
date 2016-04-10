@@ -11,7 +11,7 @@
     <!--使用基于注解的自动装配-->
     <context:annotation-config/>
 
-    <bean id="pinao" class="com.finleyamber.spring.di.annotationinject.Piano" />
+    <bean id="piano" class="com.finleyamber.spring.di.annotationinject.Piano" />
     <bean id="guitar" class="com.finleyamber.spring.di.annotationinject.Guitar" />
     <bean id="instrumentalist" class="com.finleyamber.spring.di.annotationinject.Instrumentalist" p:song="Rose" />
 

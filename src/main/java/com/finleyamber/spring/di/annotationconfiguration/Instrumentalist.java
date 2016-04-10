@@ -27,7 +27,7 @@ public class Instrumentalist implements Performer {
 
 
     @Inject
-    @Named("pinao") //similar to @Qualifier
+    @Named("piano") //similar to @Qualifier
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }

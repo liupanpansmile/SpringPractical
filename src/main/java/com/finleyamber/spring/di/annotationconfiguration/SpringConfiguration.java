@@ -14,7 +14,7 @@ public class SpringConfiguration {
 
     /*创建id为pinao的bean，方法名即为Bean id*/
     @Bean
-    public Instrument pinao(){
+    public Instrument piano(){
         return new Piano() ;
     }
 
