@@ -57,6 +57,7 @@
 ## Chapter3  
 
 * autowire
+
 	(1) byName:通过属性名称与bean id名称相同，自动装入
 		 <bean id="instrument" class="com.finleyamber.spring.di.autowire.Piano"/>
     		<!--byName 自动装配-->
@@ -110,7 +111,6 @@
 	(4) 织入：将切面应用到目标对象创建新的代理对象的过程，切面在指定的连接点被织入到目标对象中。
 
 * 通知 切点xml 配置
-
 	<aop:config>
 	        <aop:aspect ref="audience">
 	            <aop:pointcut id="perform" expression="execution(* com.finleyamber.spring.aop.simple.Performer.perform(..))"></aop:pointcut>
@@ -129,7 +129,6 @@
 	            <aop:around method="watchPerformance" pointcut-ref="perform"/>
 	        </aop:aspect>
 	</aop:config>
-	
 	
 	<aop:config>
 	        <aop:aspect ref="magician">
