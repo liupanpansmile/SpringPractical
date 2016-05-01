@@ -70,6 +70,7 @@
 	(4) autodetect:最佳自动装配，最先尝试使用constructor自动装配，如果没有发现，再使用byType 装配.
 
 * 基于注解的自动装入@Autowire ，使用byType注入，当有多个类型相同的bean时，会产生bean创建失败
+	
 	(1)Qualifier : 限定器，只注入制定名称的bean
 * Inject
 	pom中添加
@@ -111,6 +112,7 @@
 	(4) 织入：将切面应用到目标对象创建新的代理对象的过程，切面在指定的连接点被织入到目标对象中。
 
 * 通知 切点xml 配置
+
 	<aop:config>
 	        <aop:aspect ref="audience">
 	            <aop:pointcut id="perform" expression="execution(* com.finleyamber.spring.aop.simple.Performer.perform(..))"></aop:pointcut>
@@ -130,6 +132,7 @@
 	        </aop:aspect>
 	</aop:config>
 	
+	Aspect Before
 	<aop:config>
 	        <aop:aspect ref="magician">
 	            <aop:pointcut id="thinking" expression="execution(* com.finleyamber.spring.aop.simple.Thinker.thinkOfSomething(String)) and args(thoughts)"/>
