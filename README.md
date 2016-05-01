@@ -57,14 +57,14 @@
 ## Chapter3  
 
 * autowire
-    ** byName:通过属性名称与bean id名称相同，自动装入
+** byName:通过属性名称与bean id名称相同，自动装入
 
 		 <bean id="instrument" class="com.finleyamber.spring.di.autowire.Piano"/>
     	<!--byName 自动装配-->
     	<bean id="instrumentalist" class="com.finleyamber.spring.di.autowire.Instrumentalist" p:song="Rose" autowire="byName"/>
-    ** byType:通过属性的类型去查找上下文中与其类型相同的bean。但是会缺点，当上下文中存在多个类型相同的bean时，pring会报异常。
-    ** constructor:构造函数自动注入，和ByType有一样的局限性
-    ** autodetect:最佳自动装配，最先尝试使用constructor自动装配，如果没有发现，再使用byType 装配
+** byType:通过属性的类型去查找上下文中与其类型相同的bean。但是会缺点，当上下文中存在多个类型相同的bean时，pring会报异常。
+** constructor:构造函数自动注入，和ByType有一样的局限性
+** autodetect:最佳自动装配，最先尝试使用constructor自动装配，如果没有发现，再使用byType 装配
 
 * 基于注解的自动装入@Autowire ，使用byType注入，当有多个类型相同的bean时，会产生bean创建失败
 	(1)Qualifier : 限定器，只注入制定名称的bean
@@ -91,15 +91,15 @@
 ## Chapter4 aop
 
 * 相关概念
-    ** 通知：定义切面是什么，在什么时候用
+** 通知：定义切面是什么，在什么时候用
         前置通知（Before）:在犯法方法执行前被调用
         后置通知：After->无论返回是否成功，都会执行； After-Returning：返回成功才会执行
         异常通知（After-Throwing):异常抛出才会执行
         环绕通知（Around）:在方法执行前以及执行后都会被调用
-    ** 切点： 表示被切入的地方，如方法，属性，构造函数等。
-    ** 连接点：在执行过程中能够插入切面的一个点。
+** 切点： 表示被切入的地方，如方法，属性，构造函数等。
+** 连接点：在执行过程中能够插入切面的一个点。
           如一个接口A，有个方法a，如果有多个类实现A，A1 A2 A3.如果切点为a，那么连接点为A1.a A2.a  A3.a
-    ** 织入：将切面应用到目标对象创建新的代理对象的过程，切面在指定的连接点被织入到目标对象中。
+** 织入：将切面应用到目标对象创建新的代理对象的过程，切面在指定的连接点被织入到目标对象中。
 
 * 通知 切点xml 配置
 
@@ -129,6 +129,7 @@
 	            <aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
 	        </aop:aspect>
 	</aop:config>
+	
 * 注解切面
   在applicationContext.xml 添加
     <!--@Aspect注解所标注的bean转变为代理通知-->
@@ -136,7 +137,7 @@
 
 
   @Aspect
-public class Audience {
+  public class Audience {
     @Pointcut("execution(* com.finleyamber.spring.aop.annotation.Performer.perform(..))")
     public void performance(){
     }
@@ -174,5 +175,5 @@ public class Audience {
 }
 
 
-学习计划：
-（1）了解注解的原理，自定义注解
+##学习计划：
+*了解注解的原理，自定义注解
