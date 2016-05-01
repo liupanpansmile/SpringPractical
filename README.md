@@ -2,14 +2,14 @@
 读《Spring  In Action》这本书的测试代码
 
 ## Chapter2
-	* ClassPathXmlApplicationContext 创建容器时，配置文件中的所有的bean都已被创建
-	* factory-method 允许指定静态方法，替代构造方法创建实例
-	* 内部bean使用
+* ClassPathXmlApplicationContext 创建容器时，配置文件中的所有的bean都已被创建
+* factory-method 允许指定静态方法，替代构造方法创建实例
+* 内部bean使用
 		<contructor-arg>
 			<bean class ="xxx"></bean>
 		</contructor-arg>
-	* 使用命名空间p装配属性
-        * 集合注入list set map props
+* 使用命名空间p装配属性
+* 集合注入list set map props
    		<bean>
    			<property nane="instruments">
    				<list>
@@ -50,9 +50,9 @@
    			</property>
    		</bean>
 
-   	* 装配null值
-   		<property name="nonNullProperty"><null/></property>
-   	* Spring Expression Language(SpEL)
+* 装配null值
+	<property name="nonNullProperty"><null/></property>
+* Spring Expression Language(SpEL)
 
 ## Chapter3  
 
