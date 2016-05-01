@@ -58,13 +58,15 @@
 
 * autowire
 	(1) byName:通过属性名称与bean id名称相同，自动装入
-
 		 <bean id="instrument" class="com.finleyamber.spring.di.autowire.Piano"/>
-    	<!--byName 自动装配-->
-    	<bean id="instrumentalist" class="com.finleyamber.spring.di.autowire.Instrumentalist" p:song="Rose" autowire="byName"/>
-	(2) byType:通过属性的类型去查找上下文中与其类型相同的bean。但是会缺点，当上下文中存在多个类型相同的bean时，pring会报异常。
+    		<!--byName 自动装配-->
+    		<bean id="instrumentalist" class="com.finleyamber.spring.di.autowire.Instrumentalist" p:song="Rose" autowire="byName"/>
+
+	(2) byType:通过属性的类型去查找上下文中与其类型相同的bean。但是会缺点，当上下文中存在多个类型相同的bean时，spring会报异常。
+	
 	(3)constructor:构造函数自动注入，和ByType有一样的局限性
-	(4) autodetect:最佳自动装配，最先尝试使用constructor自动装配，如果没有发现，再使用byType 装配
+	
+	(4) autodetect:最佳自动装配，最先尝试使用constructor自动装配，如果没有发现，再使用byType 装配.
 
 * 基于注解的自动装入@Autowire ，使用byType注入，当有多个类型相同的bean时，会产生bean创建失败
 	(1)Qualifier : 限定器，只注入制定名称的bean
@@ -94,6 +96,7 @@
 ## Chapter4 aop
 
 * 相关概念
+
 (1)通知：定义切面是什么，在什么时候用
         前置通知（Before）:在犯法方法执行前被调用
         后置通知：After->无论返回是否成功，都会执行； After-Returning：返回成功才会执行
