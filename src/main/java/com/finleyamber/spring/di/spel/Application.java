@@ -3,6 +3,7 @@ package com.finleyamber.spring.di.spel;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.expression.spel.ast.OpDec;
 
 import java.util.List;
 import java.util.Map;
@@ -33,5 +34,8 @@ public class Application {
             System.out.println(entry.getKey() + "  " + entry.getValue());
         }
 
+
+        Order order = (Order) context.getBean("order") ;
+        System.out.println(order.getId() +  " " +  order.getCustomerId() + " " + order.getName() );
     }
 }

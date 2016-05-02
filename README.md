@@ -72,6 +72,9 @@
 * 基于注解的自动装入@Autowire ，使用byType注入，当有多个类型相同的bean时，会产生bean创建失败
 	
 	(1)Qualifier : 限定器，只注入制定名称的bean
+* @Resource: 基于byName注入，是J2EE自带的注解，而@Autowire 是spring提供
+
+* @Component (@Service @Respository @Controller) :注解定义bean
 * Inject
 	pom中添加
  		<dependency>

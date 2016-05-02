@@ -3,21 +3,29 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--使用基于注解的自动装配-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.finleyamber.spring.di.spel"/>
    <!--spel(Spring Expression Language)-->
 
-    <bean id="city" class="com.finleyamber.spring.di.spel.City" p:name="#{'beijing'}" p:population="#{10000000 + 20000000}" ></bean>
+    <bean id="city" class="com.finleyamber.spring.di.spel.City" p:name="#{'beijing'}" p:population="#{10000000 + 20000000}" />
 
 
     <util:list id="cities">
-        <bean class="com.finleyamber.spring.di.spel.City" p:name="beijing" p:population="#{T(java.lang.Math).PI*100000000}"></bean>
-        <bean class="com.finleyamber.spring.di.spel.City" p:name="shanghai" p:population="#{200000000}"></bean>
+        <bean class="com.finleyamber.spring.di.spel.City" p:name="beijing" p:population="#{T(java.lang.Math).PI*100000000}"/>
+        <bean class="com.finleyamber.spring.di.spel.City" p:name="shanghai" p:population="#{200000000}"/>
     </util:list>
 
     <!--访问集合成员-->
-    <bean id="chosenCity" class="com.finleyamber.spring.di.spel.ChosenCity" p:city="#{cities[1]}"></bean>
+    <bean id="chosenCity" class="com.finleyamber.spring.di.spel.ChosenCity" p:city="#{cities[1]}"/>
 
-    <util:properties id="dbproperties" location="classpath:com/finleyamber/spring/di/spel/setting.properties"></util:properties>
+    <util:properties id="dbproperties" location="classpath:com/finleyamber/spring/di/spel/setting.properties"/>
+    <util:properties id="customerproperties" location="classpath:com/finleyamber/spring/di/spel/customer.properties"/>
+
+    <!--<bean id="customer" class="com.finleyamber.spring.di.spel.Customer" p:id="1" p:name="jack"/>-->
+    <!--<bean id="order" class="com.finleyamber.spring.di.spel.Order" p:id="1001" p:customerId="#{customer.id}" p:name="Milk"/>-->
 </beans>
